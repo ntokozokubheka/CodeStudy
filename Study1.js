@@ -43,7 +43,7 @@ function smallestCommons(arr) {
   }
 }
 
-
+//You have to create a program that will convert HTML entities from string to their 
 function convertHTML(str) {
   // Use Object Lookup to declare as many HTML entities as needed.
   const htmlEntities = {
@@ -56,6 +56,24 @@ function convertHTML(str) {
   // Using a regex, replace characters with it's corresponding html entity
   return str.replace(/([&<>\"'])/g, match => htmlEntities[match]);
 }
+function convertHTML(str) {
+  // Use Object Lookup to declare as many HTML entities as needed.
+  const htmlEntities = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&apos;"
+  };
+  //Use map function to return a filtered str with all entities changed automatically.
+  return str
+    .split("")
+    .map(entity => htmlEntities[entity] || entity)
+    .join("");
+}
+
+// test here
+convertHTML("Dolce & Gabbana");
 
 // test here
 convertHTML("Dolce & Gabbana");
